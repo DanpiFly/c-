@@ -6,6 +6,7 @@ int main()
 	int n;
 	cout<<"¬ведите число"<<endl;
 	cin>>n;
+        int g=0;
 	if(n<=0)
 	{
 		cout<<"ќшибка"<<endl;
