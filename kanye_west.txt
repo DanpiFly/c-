@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	string kanye_west;
+	getline(cin, kanye_west);
+	char h[] = "({[]})";
+	int sum=0,sum1=0,sum2=0,sum3=0,sum4=0,sum5=0,sum6= 0;
+	
+	for (int i = 0; i < kanye_west.length(); i++)
+	{
+		if (kanye_west[i] == ']')
+		{
+			sum = sum + 1;
+		}
+		if (kanye_west[i] == '[')
+		{
+			sum2 = sum2 + 1;
+		}
+		if (kanye_west[i] == '(')
+		{
+			sum3 = sum3 + 1;
+		}
+		if (kanye_west[i] == ')')
+		{
+			sum4 = sum4 + 1;
+		}
+		if (kanye_west[i] == '}')
+		{
+			sum5 = sum5 + 1;
+		}
+		if (kanye_west[i] == '{')
+		{
+			sum6 = sum6 + 1;
+		}
+		
+	}
+	if (sum == sum2 && sum3 == sum4 && sum5==sum6 )
+	{
+		cout << "Запустится" << endl;
+	}
+	else
+	{
+		cout << "Не запустится" << endl;
+	}
+	system("pause");
+}

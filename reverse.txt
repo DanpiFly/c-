@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	string kanye_west = "Анатолий";
+	string reverse;
+	copy(kanye_west.rbegin(), kanye_west.rend(), back_inserter(reverse));
+	cout << reverse << endl;
+
+	system("pause");
+}
