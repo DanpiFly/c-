@@ -1,8 +1,0 @@
-git config --global user.name "  "
-git config --global user.email "  "
-git init - сделать репозиторию
-git status
-gir add . - отслеживает
-git commit -m "   " - запись и подтверждение изменения
-git push название master
-git remote название ссылка
