@@ -1,0 +1,30 @@
+#include<iostream>
+#include <fstream>
+#include <ctime>
+#include<string>
+
+using namespace std;
+int main()
+{
+	srand(time(NULL));
+	float *mas;
+	int n;
+	cin >> n;
+	mas = new float[n];
+	ofstream fout;
+	fout.open("C:\\Users\\DanpiFly\\Desktop\\chisla.txt");
+	
+	for (int i = 0; i <n ; ++i)
+	{
+		mas[i] = rand() % 40;
+		
+	}
+	for (int i = 0; i < n; ++i)
+	{
+		fout << mas[i] << " " << endl;
+
+	}
+
+	system("pause");
+	return 0;
+}
