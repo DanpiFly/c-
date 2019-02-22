@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	char Y = 'N';
+	float a;
+	float h;
+	cout << "Введите два числа" << endl;
+	cin >> a;
+	cin >> h;
+	cout <<"Ваш ответ - "<< a+h<< endl;
+	while(Y)
+	{
+		cout << "Хотите продолжить? ( Y- да / N - нет)" << endl;
+		cin >> Y;
+		switch (Y)
+		{
+		case 'Y':
+			cout << "Введите два числа" << endl;
+			cin >> a;
+			cin >> h;
+			cout << "Ваш ответ - " << a + h << endl;
+
+		}
+		if (Y == 'N')
+		{
+			cout << "Пока" << endl;
+			break;
+		}
+	}
+	system("pause");
+}

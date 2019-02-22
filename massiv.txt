@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int n=0;
+	int* mas = new int[0];
+	int answer = -1;
+
+	while (answer != 0)
+	{
+		int* mas1 = new int[n + 1];
+		for (int i = 0; i < n; i++)
+		{
+			mas1[i] = mas[i];
+		}
+		cout << "Введите новый элемент" << endl;
+		cout << "Для завершения введите - 0" << endl;
+		cin >> mas1[n];
+		if (mas1[n] == 0)
+		{
+			break;
+		}
+		delete[] mas;
+		mas = mas1;
+		n++;
+		for (int i = 0; i < n; i++)
+		{
+			cout << mas[i] << " ";
+		}
+		
+	
+	}
+
+	delete[] mas;
+	system("pause");
+	return 0;
+}

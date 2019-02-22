@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int factorial(int number) 
+{
+	int Fact = 1;
+	for (int i = 1; i <= number; i++)
+	{
+		Fact *= i;
+	}
+	return Fact;
+		
+}
+
+int main() 
+{
+	setlocale(LC_ALL, "rus");
+	int number;
+	cout << "Введите число"<<endl;
+	cin >> number;
+	if (number > 0)
+	{
+		cout << "Факториал числа " << number << " - " << factorial(number) << endl;
+	}
+	else
+	{
+		cout << "Ошибка - число < 0" << endl;
+	}
+	
+	system("pause");
+	return 0;
+}

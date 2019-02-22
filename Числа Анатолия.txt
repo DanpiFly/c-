@@ -1,0 +1,17 @@
+#include <iostream> 
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Rus");	
+	int h = 1;
+	int c;
+	cout<< "Введите кол-во чисел"<< endl;
+	cin>> c;
+	cout << "Числа  Анатолия " <<endl;
+	for (int i = 1; i < c; i++)
+	{
+		h = h + i;
+		cout<< h << endl;
+	}
+	system("pause");
+}

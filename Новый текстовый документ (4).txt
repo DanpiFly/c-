@@ -1,0 +1,26 @@
+
+#include <iostream>
+#include <string>
+#include<Windows.h>
+using namespace std;
+
+int main() 
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	setlocale(LC_ALL, "russia");
+	string s;
+	string h;
+	cout << "¬ведите строку:" << endl;
+	getline(cin,s);
+    s.find("");
+	if (s == "")
+	{
+		
+	}
+	cout << s << endl;
+	
+
+	system("pause");
+	return 0;
+}

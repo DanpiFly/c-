@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	int sum = 0;
+	int b;
+	double stepen;
+	cout << "¬ведите число" << endl;
+	cin >> b;
+	for (int i = 0 ;i < b; i++)
+	{
+		stepen = i*i;
+		sum = sum + stepen;
+
+	}
+        cout << "—умма квадратов" << endl;
+	cout << sum << endl;
+
+	system("pause");
+}
