@@ -1,0 +1,182 @@
+#include <iostream>
+#include <Windows.h>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <fstream>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+struct car
+{
+	int id;
+	int year;
+	string mark;
+	string categor;
+	float price;
+	bool old;
+};
+
+int main()
+{
+	SetConsoleOutputCP(1251);
+	SetConsoleCP(1251);
+	vector<car> m;
+	ofstream fout;
+	ifstream fin;
+	fin.open("input.txt");
+	if (fin.is_open())
+	{
+		while (!fin.eof())
+		{
+			car buf;
+			fin >> buf.id;
+			fin >> buf.mark;
+			fin >> buf.year;
+			fin >> buf.categor;
+			fin >> buf.price;
+			fin >> buf.old;
+			m.push_back(buf);
+		}
+		fin.close();
+	}
+	else
+	{
+		cout << "Failed to load database" << endl;
+	}
+	int answer = -1;
+	cout << "Welcome to the fleet named after Anatoly" << endl;
+	while (answer != 0)
+	{
+		cout << "1. Printout\n 2. Adding\n 3. Removal\n 4. Class printout\n 5. Saving to file\n 6. Sort\n 7. Price information\n 0. Exit" << endl;
+		cout << endl;
+		cin >> answer;
+		switch (answer)
+		{
+		case 1:
+		{
+			for (int i = 0; i < m.size(); i++)
+			{
+				cout << "ID: " << m[i].id << "\n Marka: " << m[i].mark << "\n Class: " << m[i].categor << " \n Price: " << m[i].price << " $ \n Year of manufacture: " << m[i].year << " \n Maintainability:" << m[i].old << "\n--------------------------" << endl;
+			}
+			break;
+		}
+		case 2:
+		{
+			car k;
+			cout << "ID:";
+			cin >> k.id;
+			cout << "Marka:";
+			cin >> k.mark;
+			cout << "Class:";
+			cin >> k.categor;
+			cout << "Price:";
+			cin >> k.price;
+			cout << "Year of manufacture:";
+			cin >> k.year;
+			cout << "Maintainability:";
+			cin >> k.old;
+			m.push_back(k);
+			break;
+		}
+		case 3:
+		{
+			char l;
+			cout << "Remove the parameter(ID[i] or Marka[m]):";
+			cin >> l;
+			if (l == 'i')
+			{
+				int i;
+				cout << "Enter ID:";
+				cin >> i;
+				i--;
+				m.erase(m.begin() + i);
+			}
+			if (l == 'm')
+			{
+				string marka;
+				cout << "Enter Marka:";
+				cin >> marka;
+				for (int i = 0; i < marka.size(); i++)
+				{
+					if (m[i].mark == marka)
+					{
+						m.erase(m.begin() + i);
+					}
+				}
+			}
+			break;
+		}
+		case 4:
+		{
+			string category;
+			cout << "Category:";
+			cin >> category;
+			for (int i = 0; i < m.size(); i++)
+			{
+				if (m[i].categor == category)
+				{
+					cout << "ID: " << m[i].id << "\n Marka: " << m[i].mark << "\n Class: " << m[i].categor << " \n Price: " << m[i].price << " $ \n Year of manufacture: " << m[i].year << " \n Maintainability:" << m[i].old << "\n------------------------" << endl;
+				}
+			}
+			break;
+		}
+		case 5:
+		{
+			fout.open("input.txt");
+			for (int i = 0; i < m.size(); i++)
+			{
+				fout << m[i].id << " " << m[i].mark << " " << m[i].categor << " " << m[i].price << " " << m[i].year << " " << m[i].old << endl;
+			}
+			fout.close();
+			break;
+		}
+		case 6:
+		{
+			for (int i = 0; i < m.size() - 1; i++)
+			{
+				for (int j = 0; j < m.size() - 1; j++)
+				{
+					if (m[j].year > m[j + 1].year)
+					{
+						swap(m[j], m[j + 1]);
+					}
+				}
+			}
+			break;
+		}
+		case 7:
+		{
+			int pricee;
+			cout << "Enter Price: ";
+			cin >> pricee;
+			for (int i = 0; i < m.size(); i++)
+			{
+				if (m[i].price >= pricee)
+				{
+					cout << "ID: " << m[i].id << "\n Marka: " << m[i].mark << "\n Class: " << m[i].categor << " \n Price: " << m[i].price << " $ \n Year of manufacture: " << m[i].year << " \n Maintainability:" << m[i].old << "\n------------------------" << endl;
+				}
+			}
+			break;
+		}
+		case 0:
+		{
+			exit(0);
+			break;
+		}
+		default:
+		{
+			cout << "ERRRORRR" << endl;
+			exit(0);
+		}
+		}
+	}
+
+
+
+
+
+	system("pause");
+}
